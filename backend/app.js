@@ -6,7 +6,7 @@ const mongo = require("mongodb");
 const mongoClient = mongo.MongoClient;
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const mongoUrl = "mongodb+srv://Vinu8889:Vinu8889@cluster0.3xz5r.mongodb.net/testdb?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://Vinu8889:Vinu8889@cluster0.3xz5r.mongodb.net/testdb?retryWrites=true&w=majority"
 var path = require("path")
 
 let dbobj;
@@ -48,7 +48,7 @@ app.get("/messages", (req, res) => {
 
 
 
-mongoClient.connect(mongoUrl, (err, connection) => {
+mongoClient.connect(mongoUrl,{ useUnifiedTopology: true }, (err, connection) => {
   if (err) console.log(err);
   dbobj = connection.db("testdb");
 
