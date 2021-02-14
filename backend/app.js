@@ -17,13 +17,14 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname,"../frontend/build")));
+// app.use(express.static(path.join(__dirname,"../frontend/build")));
 
+// "client": "npm start --prefix ../frontend",
+//     "dev": "concurrently \"npm run server\" \"npm run client\""
 
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,"../frontend/build/index.html"));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname,"../frontend/build/index.html"));
+// });
 
 app.post("/addmessages", (req, res) => {
   dbobj.collection(col_name).insertOne(req.body, (err, result) => {
